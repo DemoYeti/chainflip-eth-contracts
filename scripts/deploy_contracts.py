@@ -155,6 +155,11 @@ def deploy_secondary_evm():
 
     store_artifacts(addressDump)
 
+    # Add spam transcations
+    NUM_SPAM_TXS = 100
+    for i in range(NUM_SPAM_TXS):
+        deployer.transfer(deployer, "1 ether")
+
 
 # Check that all environment variables are set when deploying to a live network.
 def check_env_variables(env_var_names):
